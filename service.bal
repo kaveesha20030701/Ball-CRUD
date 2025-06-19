@@ -5,7 +5,7 @@ import ballerina/sql;
 
 
 
-service / on new http:Listener(9090) {
+service / on new http:Listener(9094) {
         resource function get .() returns string {
         return "Welcome to Ballerina CRUD API!";
     }
@@ -26,7 +26,7 @@ service / on new http:Listener(9090) {
         return response;
     }
 
-        resource function post s(database:UserCreate user) returns http:Created|http:InternalServerError {
+        resource function post users(database:UserCreate user) returns http:Created|http:InternalServerError {
         sql:ExecutionResult|sql:Error response = database:insertUser(user);
         if response is error {
             return <http:InternalServerError>{
