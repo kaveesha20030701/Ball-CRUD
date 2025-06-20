@@ -10,7 +10,7 @@ service / on new http:Listener(9098) {
         return "Welcome to Ballerina CRUD API!";
     }
 
-    // Resource function to get all books.
+    // Resource function to get all users.
     resource function get users() returns database:User[]|http:InternalServerError {
         // Call the getBooks function to fetch data from the database.
         database:User[]|error response = database:getUsers();
@@ -18,11 +18,11 @@ service / on new http:Listener(9098) {
         // If there's an error while fetching, return an internal server error.
         if response is error {
             return <http:InternalServerError>{
-                body: "Error while retrieving books"
+                body: "Error while retrieving users"
             };
         }
 
-        // Return the response containing the list of books.
+        // Return the response containing the list of users.
         return response;
     }
 
@@ -30,7 +30,7 @@ service / on new http:Listener(9098) {
         sql:ExecutionResult|sql:Error response = database:insertUser(user);
         if response is error {
             return <http:InternalServerError>{
-                body: "Error while inserting book"
+                body: "Error while inserting user"
             };
         }
         return http:CREATED;
@@ -41,19 +41,19 @@ service / on new http:Listener(9098) {
 
      if response is error {
          return <http:InternalServerError>{
-             body: "Error while deleting book"
+             body: "Error while deleting user"
          };
      }
 
      return http:NO_CONTENT;
 }
 
-resource function patch users/[int id](database:UserUpdate book) returns http:NoContent|http:InternalServerError {
-    sql:ExecutionResult|sql:Error response = database:updateUser(id, book);
+resource function patch users/[int id](database:UserUpdate user) returns http:NoContent|http:InternalServerError {
+    sql:ExecutionResult|sql:Error response = database:updateUser(id, user);
 
     if response is error {
         return <http:InternalServerError>{
-            body: "Error while updating book"
+            body: "Error while updating user"
         };
     }
 

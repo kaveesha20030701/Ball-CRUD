@@ -12,36 +12,36 @@ type DatabaseConfig record {|
     int port;
 |};
 
-# Book record type.
+# User record type.
 public type User record {|
-    # Book ID
+    # User ID
     @sql:Column {name: "id"}
     readonly int id;
 
-    # Book title
+    # User name
     @sql:Column {name: "name"}
     string name;
 
-    # Book author
+    # User email
     @sql:Column {name: "email"}
     string email;
     
 |};   
 
-# Book create record type.
+# User create record type.
 public type UserCreate record {|
-    # Book title
+    # User name
     string name;
-    # Book author
+    # User email
     string email;
     
 |};
 
-# Book update record type.
+# User update record type.
 public type UserUpdate record {|
-    # Book title
+    # User name
     string? name = ();
-    # Book author
+    # User email
     string? email = ();
    
 |};
