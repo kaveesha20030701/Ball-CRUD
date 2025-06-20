@@ -1,4 +1,4 @@
-markdown
+
 # Ballerina CRUD API
 
 A simple CRUD REST API using **Ballerina** and **MySQL**. Easily insert,search,update and delete user data.
