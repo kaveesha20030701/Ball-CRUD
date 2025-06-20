@@ -59,7 +59,7 @@ bash
 bal build
 bal run
 
-> Server runs on: http://localhost:8085
+> Server runs on: http://localhost:9098
 
 ---
 
