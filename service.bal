@@ -25,6 +25,34 @@ service / on new http:Listener(9098) {
         // Return the response containing the list of users.
         return response;
     }
+    resource function get users/[int id]() returns database:User|http:NotFound|http:InternalServerError {
+    database:User|error response = database:getUserById(id);
+
+    if response is error {
+        return <http:InternalServerError>{
+            body: "Error while retrieving user"
+        };
+    }
+
+    if response is database:User {
+        return response;
+    }
+}
+
+resource function get users/search/[string q]() returns database:User[]|http:InternalServerError {
+    database:User[]|error response = database:searchUsers(q);
+
+    if response is error {
+        return <http:InternalServerError>{
+            body: "Error while searching users"
+        };
+    }
+
+    return response;
+}
+
+
+
 
         resource function post users(database:UserCreate user) returns http:Created|http:InternalServerError {
         sql:ExecutionResult|sql:Error response = database:insertUser(user);
