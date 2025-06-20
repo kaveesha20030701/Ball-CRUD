@@ -1,11 +1,11 @@
 markdown
-# ⚡ Ballerina CRUD API
+# Ballerina CRUD API
 
 A simple CRUD REST API using **Ballerina** and **MySQL**. Easily insert,search,update and delete user data.
 
 ---
 
-## 🔧 Requirements
+## Requirements
 
 - **Ballerina** (v2201.12.6+)
 - **MySQL**
@@ -13,7 +13,7 @@ A simple CRUD REST API using **Ballerina** and **MySQL**. Easily insert,search,u
 
 ---
 
-## 🗂️ Project Layout
+## Project Layout
 
 ````
 
@@ -54,7 +54,7 @@ toml
 
 ---
 
-## 🚀 Run It
+## Run It
 bash
 bal build
 bal run
@@ -74,41 +74,4 @@ bal run
 | PATCH  | /users/{id}            | Update user info |
 | DELETE | /users/{id}            | Remove user      |
 
----
 
-## 🔍 Examples
-
-**Create a user**
-bash
-curl -X POST http://localhost:9098/users \
--H "Content-Type: application/json" \
--d '{"name": "Jane", "email": "jane@demo.com"}'
-
-**Get users**
-bash
-curl http://localhost:9098/users
-
-
-**Serch users by name**
-bash
-curl http://localhost:9098/users/search/name
-
-**Update user**
-bash
-curl -X PATCH http://localhost:9098/users/2 \
--H "Content-Type: application/json" \
--d '{"email": "new@email.com"}'
-
-**Delete user**
-bash
-curl -X DELETE http://localhost:8085/users/2
-
----
-
-## Notes
-
-Validate inputs before POST/PATCH.
-Basic error handling included.
-Extend the db_queries.bal file for custom queries.
-
----
