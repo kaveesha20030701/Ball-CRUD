@@ -29,7 +29,7 @@ isolated function deleteUserQuery(int userId) returns sql:ParameterizedQuery => 
 isolated function updateUserQuery(int userId, UserUpdate payload) returns sql:ParameterizedQuery =>`
     UPDATE user
         SET 
-            title = COALESCE(${payload.name}, name),
-            author = COALESCE(${payload.email}, email)
+            name = COALESCE(${payload.name}, name),
+            email = COALESCE(${payload.email}, email)
         WHERE id = ${userId}
 `;

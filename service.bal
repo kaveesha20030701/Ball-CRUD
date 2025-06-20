@@ -5,7 +5,7 @@ import ballerina/sql;
 
 
 
-service / on new http:Listener(9094) {
+service / on new http:Listener(9098) {
         resource function get .() returns string {
         return "Welcome to Ballerina CRUD API!";
     }
