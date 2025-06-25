@@ -4,7 +4,7 @@
 A simple CRUD REST API using **Ballerina** and **MySQL**. Easily insert,search,update and delete user data.
 
 ---
-
+Outdated Code Segments - Sales pitstop (https://docs.google.com/document/d/1dHglzUo64Hy_qMYO_fpt1X8VKp3vtrE3PAGK7TayTnI/edit?tab=t.0)
 ## Requirements
 
 - **Ballerina** (v2201.12.6+)
